@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#1a110b"/>
+  <!-- grão-serra: o grão com a crista da serra no lugar da fenda (mesma geometria de src/components/Logo.tsx) -->
+  <g transform="translate(32 32) scale(1.18) rotate(-14)">
+    <clipPath id="g"><ellipse rx="21.5" ry="15.5"/></clipPath>
+    <ellipse rx="21.5" ry="15.5" fill="#c8925a"/>
+    <path clip-path="url(#g)" d="M-24 5.5 L-21 3.2 L-11.5 -5.5 L-6.5 -1.2 L1.8 -9.5 L10.5 -0.5 L14 -3.2 L24 5.5" fill="none" stroke="#1a110b" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+</svg>

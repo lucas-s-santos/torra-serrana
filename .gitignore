@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+.vercel
+.env*.local
+
+# Blender: só os scripts entram no repo; renders ficam locais
+blender/out/
+blender/test/
+*.blend1
+.next-dev.log
+
+# originais do Google Flow (pesados; só os derivados em public/ entram)
+flow/

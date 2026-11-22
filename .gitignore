@@ -14,3 +14,7 @@ blender/test/
 
 # originais do Google Flow (pesados; só os derivados em public/ entram)
 flow/
+
+# vídeos de referência dos Reels e gravação do reel (pesados, ficam locais)
+referencias-insta/
+reel/

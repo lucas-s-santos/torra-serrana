@@ -37,7 +37,7 @@ export function Graos() {
     <section
       ref={ref}
       aria-label="Lotes"
-      className="relative h-[calc(100svh+var(--dist,0px))] bg-creme text-cafe [--p:0] motion-reduce:h-auto"
+      className="fundo-torra relative h-[calc(100svh+var(--dist,0px))] text-creme [--p:0] motion-reduce:h-auto"
     >
       <div className="sticky top-0 flex h-svh items-center overflow-hidden motion-reduce:static motion-reduce:h-auto motion-reduce:overflow-x-auto motion-reduce:py-28">
         {/* mesma margem esquerda do .shell, mesmo em telas > 1400px */}
@@ -46,11 +46,11 @@ export function Graos() {
           className="flex w-max items-center gap-5 px-[max(1.5rem,calc((100vw-1400px)/2+1.5rem))] will-change-transform md:gap-8 md:px-[max(3rem,calc((100vw-1400px)/2+3rem))] motion-reduce:transform-none!"
         >
           <div className="flex w-[82vw] shrink-0 flex-col justify-center pr-6 md:w-[34vw] md:pr-16">
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-cafe/65">04 — Lotes</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-creme/80">04 — Lotes</p>
             <Revela className="mt-8 font-serif text-title">
               Três lotes. Três <em className="italic">histórias.</em>
             </Revela>
-            <Revela as="p" delay={0.15} className="mt-8 max-w-[32ch] text-lead text-cafe/70">
+            <Revela as="p" delay={0.15} className="mt-8 max-w-[32ch] text-lead text-creme/90">
               Torramos em lotes de 12 kg, toda terça. Cada café com a sua curva, até a nota aparecer.
             </Revela>
           </div>
@@ -58,7 +58,7 @@ export function Graos() {
           {LOTES.map((l, i) => (
             <article
               key={l.nome}
-              className="relative flex h-[74svh] w-[80vw] shrink-0 flex-col justify-between border border-cafe/12 bg-[color-mix(in_srgb,var(--color-cafe)_3.5%,var(--color-creme))] p-6 md:h-[78svh] md:w-[30vw] md:min-w-[380px] md:p-8"
+              className="relative flex h-[74svh] w-[80vw] shrink-0 flex-col justify-between border border-cafe/12 text-cafe shadow-[0_40px_70px_-30px_rgba(20,9,4,0.55)] bg-[color-mix(in_srgb,var(--color-cafe)_3.5%,var(--color-creme))] p-6 md:h-[78svh] md:w-[30vw] md:min-w-[380px] md:p-8"
             >
               <header className="flex justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-cafe/65">
                 <span>Lote 0{i + 1}</span>

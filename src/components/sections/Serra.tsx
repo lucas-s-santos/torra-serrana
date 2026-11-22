@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { reveal, useScrollVar } from "@/lib/useScrollProgress";
 
-// de 0 a 0.45 do scroll a foto sai de um quadro no creme e toma a tela
+// de 0 a 0.45 do scroll a foto sai de um quadro no marrom e toma a tela
 const abre = "clamp(0, calc(var(--p) / 0.45), 1)";
 
 /** Respiro entre Origem e Extração: a casa na encosta, com a serra na neblina. */
@@ -12,7 +12,7 @@ export function Serra() {
   useScrollVar(ref);
 
   return (
-    <section ref={ref} aria-label="A serra" className="relative h-[220svh] bg-creme [--p:0] motion-reduce:h-svh">
+    <section ref={ref} aria-label="A serra" className="relative h-[220svh] bg-torra [--p:0] motion-reduce:h-svh">
       <div
         className="sticky top-0 h-svh overflow-hidden"
         style={{ clipPath: `inset(calc((1 - ${abre}) * 12%) calc((1 - ${abre}) * 8%))` }}
@@ -31,7 +31,7 @@ export function Serra() {
             style={{ scale: "calc(1.15 - var(--p) * 0.15)" }}
           />
         </picture>
-        {/* sombra no topo: o header (mix-blend-difference) some no céu claro sem ela */}
+        {/* sombra no topo: o header (creme) some no céu claro sem ela */}
         <div
           className="absolute inset-x-0 top-0 h-48 bg-[linear-gradient(to_bottom,color-mix(in_srgb,var(--color-cafe)_80%,transparent),transparent)]"
           style={{ opacity: abre }}

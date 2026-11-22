@@ -8,15 +8,17 @@ type Props = {
   id: string;
   /** desenha a crista ao carregar (abertura do site) */
   anima?: boolean;
+  /** estilo do traço da crista (pathLength=1), pra desenhá-la por fora: ex. pelo scroll */
+  crista?: CSSProperties;
   className?: string;
   style?: CSSProperties;
 };
 
 /**
  * Marca da Torra Serrana: grão de café com a crista da serra no lugar da fenda.
- * Uma cor só (currentColor), com a crista vazada: funciona sob o mix-blend-difference do header.
+ * Uma cor só (currentColor), com a crista vazada: serve em qualquer fundo e em qualquer cor de texto.
  */
-export function Grao({ id, anima = false, className = "", style }: Props) {
+export function Grao({ id, anima = false, crista, className = "", style }: Props) {
   return (
     <svg viewBox="-24 -24 48 48" className={className} style={style} aria-hidden>
       <mask id={id}>
@@ -31,6 +33,7 @@ export function Grao({ id, anima = false, className = "", style }: Props) {
             strokeLinejoin="round"
             strokeLinecap="round"
             className={anima ? "crista" : undefined}
+            style={crista}
           />
         </g>
       </mask>

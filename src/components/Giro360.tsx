@@ -72,6 +72,7 @@ export function Giro360({ ref, src, count, sizes = SIZES, corte, label, onVisive
       const t = a - i;
       const exatos = store.has(wrap(i)) && store.has(wrap(i + 1));
       const b0 = exatos ? store.nearest(wrap(i)) : store.nearest(frame());
+      canvas.dataset.exato = String(exatos); // pro gravador do reel (reel/fonte/gravar.mjs)
       if (!b0) return; // nada decodificado ainda: deixa o que já está na tela em vez de apagar
       const b1 = exatos && t > 0.01 ? store.nearest(wrap(i + 1)) : undefined;
       // onde o quadro de 1600 cairia (contain, centrado) e a caixa recortada dentro dele

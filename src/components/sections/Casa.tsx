@@ -26,12 +26,12 @@ function Quadro({ legenda, vel, className = "", children }: { legenda: string; v
   return (
     <figure className={className}>
       <div
-        className="relative aspect-[3/4] overflow-hidden bg-cafe/10 md:[translate:0_calc((0.5-var(--p))*var(--vel))]"
+        className="relative aspect-[3/4] overflow-hidden bg-cafe/25 md:[translate:0_calc((0.5-var(--p))*var(--vel))]"
         style={{ "--vel": `${vel}svh` } as CSSProperties}
       >
         {children}
       </div>
-      <figcaption className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-cafe/65">{legenda}</figcaption>
+      <figcaption className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-creme/80">{legenda}</figcaption>
     </figure>
   );
 }
@@ -41,16 +41,16 @@ export function Casa() {
   useScrollVar(ref, { start: "top bottom", end: "bottom top" });
 
   return (
-    <section ref={ref} aria-label="A casa" className="relative overflow-hidden bg-creme text-cafe [--p:0.5]">
+    <section ref={ref} aria-label="A casa" className="fundo-torra relative overflow-hidden text-creme [--p:0.5]">
       <div className="shell py-28 md:py-40">
         <div className="grid gap-8 md:grid-cols-12 md:items-end md:gap-10">
           <div className="md:col-span-7">
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-cafe/65">07 — A casa</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-creme/80">07 — A casa</p>
             <Revela className="mt-8 font-serif text-title">
               Uma casa pequena <em className="italic">na serra.</em>
             </Revela>
           </div>
-          <Revela as="p" delay={0.15} className="max-w-[34ch] text-lead text-cafe/75 md:col-span-4 md:col-start-9">
+          <Revela as="p" delay={0.15} className="max-w-[34ch] text-lead text-creme/90 md:col-span-4 md:col-start-9">
             Torramos às terças, num torrador de cinco quilos. Nos outros dias a porta fica aberta e o café vai direto pra mesa.
           </Revela>
         </div>

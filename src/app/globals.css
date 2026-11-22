@@ -3,8 +3,12 @@
 @theme {
   --color-cafe: #1a110b;
   --color-creme: #f2ebe0;
-  --color-caramelo: #c8925a;
-  --color-cereja: #b5462f;
+  --color-caramelo: #eba26c;
+  /* paleta Torra (22/11): as seções que eram creme viram marrom de café torrado, em degradê até a funda */
+  --color-torra: #6a3a25;
+  --color-torra-funda: #3a1e13;
+  /* cereja: destaque sobre o café (a marca grande do rodapé, "serra." do CTA) */
+  --color-cereja: #c23a22;
 
   /* escala tipográfica fluida (Fraunces nos títulos) */
   --text-display: clamp(3.75rem, 12vw, 12.5rem);
@@ -56,6 +60,17 @@
   }
 }
 
+/* seção marrom entre duas de café: emenda no café nas pontas, da torra (em cima) à funda (embaixo) */
+@utility fundo-torra {
+  background: linear-gradient(
+    to bottom,
+    var(--color-cafe),
+    var(--color-torra) 30vh,
+    var(--color-torra-funda) calc(100% - 24vh),
+    var(--color-cafe)
+  );
+}
+
 /* máscaras de linha do SplitText (<Revela>): folga pra descendentes (p, ç) e itálico não serem cortados */
 .linha-mask {
   padding-block-end: 0.14em;
@@ -89,6 +104,104 @@
   .entrada,
   .crista {
     animation: none;
+  }
+}
+
+/* abertura "a gota" (Gota.tsx): uma gota de café cai no meio da tela marrom, bate, e a mancha toma a tela
+   e vira o café do hero. Só na 1ª visita da sessão (o script do layout marca data-gota="vista" antes de pintar).
+   Unidades do SVG: viewBox -50..50 com slice, então 1 unidade = 1% do lado maior da tela (a gota tem escala própria). */
+.gota {
+  background: radial-gradient(circle at 50% 50%, #8e5537, var(--color-torra) 45%, var(--color-torra-funda));
+  animation: gota-some 0.35s ease 1.35s both;
+}
+@keyframes gota-some {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.gota-cai {
+  animation: gota-cai 0.6s cubic-bezier(0.55, 0, 1, 0.45) 0.1s both;
+}
+@keyframes gota-cai {
+  from {
+    transform: translate(0, -22px) scale(0.9, 1.25);
+  }
+  to {
+    transform: translate(0, 0) scale(1, 1.1);
+  }
+}
+.gota-bate {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: gota-bate 0.09s ease-out 0.7s both;
+}
+@keyframes gota-bate {
+  to {
+    transform: scale(1.7, 0.2);
+    opacity: 0;
+  }
+}
+.gota-onda {
+  animation: gota-onda 0.85s cubic-bezier(0.16, 1, 0.3, 1) var(--d) both;
+}
+/* ondas e respingos nascem no centro: invisíveis (0%) até a gota bater */
+@keyframes gota-onda {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(var(--s));
+    opacity: 0;
+  }
+}
+.gota-respingo {
+  animation: gota-respingo 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+}
+@keyframes gota-respingo {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  to {
+    transform: translate(var(--x), var(--y)) scale(0.3);
+    opacity: 0;
+  }
+}
+.gota-mancha {
+  animation: gota-mancha 0.85s cubic-bezier(0.7, 0, 0.25, 1) 0.76s both;
+}
+@keyframes gota-mancha {
+  from {
+    transform: scale(0) rotate(-20deg);
+  }
+  to {
+    transform: scale(72) rotate(0deg);
+  }
+}
+/* enquanto a gota cai, o hero espera: o título e a crista do logo entram depois dela */
+html:not([data-gota="vista"]) .entrada {
+  animation-delay: calc(var(--atraso, 0ms) + 1300ms);
+}
+html:not([data-gota="vista"]) .crista {
+  animation-delay: 1.8s;
+}
+[data-gota="vista"] .gota {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .gota {
+    display: none;
   }
 }
 

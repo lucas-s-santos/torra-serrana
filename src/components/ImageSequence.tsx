@@ -78,6 +78,8 @@ export function ImageSequence({
     const paint = () => {
       raf = 0;
       draw(ctx, store.nearest(current), fit);
+      // o gravador do reel (reel/fonte/gravar.mjs) só tira a foto quando o frame desenhado é o certo
+      canvas.dataset.exato = String(store.has(current));
     };
     const store: FrameStore = frameStore(count, (i) => frameUrl(src, size, i, ext), {
       ...janela(size),

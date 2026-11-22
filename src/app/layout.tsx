@@ -6,6 +6,7 @@ import "lenis/dist/lenis.css";
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { FilmGrain } from "@/components/FilmGrain";
+import { Gota } from "@/components/Gota";
 
 // Fraunces instanciado (peso 400, SOFT 50, só opsz variável): 70 KB em vez de 264 KB. Ver scripts/fraunces.py
 const fraunces = localFont({
@@ -30,8 +31,12 @@ export const viewport: Viewport = { themeColor: "#1a110b" };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${fraunces.variable} ${geist.variable} ${geistMono.variable}`}>
+    // suppressHydrationWarning: o script abaixo marca data-gota no <html> antes da hidratação
+    <html lang="pt-BR" className={`${fraunces.variable} ${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body>
+        {/* a gota só cai na 1ª visita da sessão: marcado antes do primeiro paint, sem piscar */}
+        <script dangerouslySetInnerHTML={{ __html: `try{sessionStorage.getItem("gota")&&document.documentElement.setAttribute("data-gota","vista")}catch(e){}` }} />
+        <Gota />
         <SmoothScroll />
         {children}
         <FilmGrain />

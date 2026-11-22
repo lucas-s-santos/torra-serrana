@@ -38,7 +38,7 @@ const desenha = (atraso = 0, ate = 1) => ({
 function Anel() {
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[560px]">
-      <svg viewBox="0 0 400 400" className="absolute inset-0 size-full -rotate-12 text-cafe" aria-hidden>
+      <svg viewBox="0 0 400 400" className="absolute inset-0 size-full -rotate-12 text-creme" aria-hidden>
         <defs>
           <filter id="mancha" x="-10%" y="-10%" width="120%" height="120%">
             <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" />
@@ -66,7 +66,7 @@ function Anel() {
       </svg>
       <div className="absolute inset-0 grid place-items-center text-center" style={reveal(0.55, 0.85, 16)}>
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-cafe/65">22°07′ S · 45°08′ O</p>
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-creme/80">22°07′ S · 45°08′ O</p>
           <p className="mt-3 font-serif text-[clamp(1.75rem,3vw,2.75rem)] leading-none">
             Carmo de <em className="italic">Minas</em>
           </p>
@@ -81,24 +81,24 @@ export function Origem() {
   useScrollVar(ref, { start: "top 75%", end: "center 40%" });
 
   return (
-    <section ref={ref} id="origem" className="relative bg-creme text-cafe [--p:0]">
+    <section ref={ref} id="origem" className="relative bg-[linear-gradient(to_bottom,var(--color-cafe),var(--color-torra-funda)_14vh,var(--color-torra)_48vh)] text-creme [--p:0]">
       <div className="shell grid items-center gap-16 py-28 md:grid-cols-12 md:gap-10 md:py-44">
         <div className="md:col-span-6">
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-cafe/65">01 — Origem</p>
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-creme/80">01 — Origem</p>
           <Revela className="mt-8 max-w-[12ch] font-serif text-title">
             Toda xícara começa no <em className="italic">pé.</em>
           </Revela>
-          <Revela as="p" delay={0.15} className="mt-8 max-w-[36ch] text-lead text-cafe/70">
+          <Revela as="p" delay={0.15} className="mt-8 max-w-[36ch] text-lead text-creme/90">
             Colhemos à mão, só a cereja madura, na encosta da serra. Devagar, pé por pé: é o único jeito de o grão chegar inteiro na xícara.
           </Revela>
-          <dl className="mt-14 border-t border-cafe/15">
+          <dl className="mt-14 border-t border-creme/25">
             {ORIGEM.map((d, i) => (
               <div
                 key={d.label}
-                className="flex items-baseline justify-between gap-6 border-b border-cafe/15 py-4"
+                className="flex items-baseline justify-between gap-6 border-b border-creme/25 py-4"
                 style={reveal(0.35 + i * 0.12, 0.6 + i * 0.12, 12)}
               >
-                <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-cafe/65">{d.label}</dt>
+                <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-creme/80">{d.label}</dt>
                 <dd className="text-right font-mono text-base tabular-nums md:text-lg">{d.valor}</dd>
               </div>
             ))}

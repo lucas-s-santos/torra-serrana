@@ -1,7 +1,7 @@
 import { LoopVideo } from "@/components/LoopVideo";
 import { ENDERECO, HORARIO, whatsappUrl } from "@/lib/site";
 import { Revela } from "@/components/Revela";
-import { Grao } from "@/components/Logo";
+import { Assinatura } from "@/components/Assinatura";
 
 export function Cta() {
   return (
@@ -35,7 +35,7 @@ export function Cta() {
             </span>
           </a>
 
-          <dl className="mt-14 grid grid-cols-2 gap-8 border-t border-creme/12 pt-8">
+          <dl className="mt-14 grid gap-8 border-t border-creme/12 pt-8 sm:grid-cols-2">
             <div>
               <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-creme/60">Onde</dt>
               <dd className="mt-3 leading-relaxed text-creme/80">
@@ -63,15 +63,12 @@ export function Cta() {
 
       <footer className="border-t border-creme/10">
         <div className="shell flex flex-col gap-3 py-8 font-mono text-[11px] uppercase tracking-[0.18em] text-creme/55 md:flex-row md:items-center md:justify-between">
-          <span className="flex items-center gap-2.5 font-serif text-base normal-case tracking-normal text-creme/70">
-            <Grao id="grao-rodape" className="size-6 text-caramelo" />
-            Torra Serrana
-          </span>
           <span>Marca fictícia · projeto de portfólio</span>
           <a href="https://instagram.com/dev.lucassilva.ss" target="_blank" rel="noopener noreferrer" className="hover:text-creme">
             Site por @dev.lucassilva.ss
           </a>
         </div>
+        <Assinatura />
       </footer>
     </section>
   );

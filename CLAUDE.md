@@ -1,7 +1,7 @@
 # Torra Serrana — Landing 3D de café especial (portfólio)
 
 Cafeteria/torrefação **fictícia** do Sul de Minas. Nenhuma marca real. Objetivo: vídeo vertical pro Instagram (@dev.lucassilva.ss) + portfólio.
-Referência de linha visual: premium escuro alternando com creme, macros de café em tela cheia, dados de barista na tela, serifa elegante.
+Referência de linha visual: premium escuro alternando com marrom torra (era creme até 22/11; passou umas horas pelo vermelho cereja), macros de café em tela cheia, dados de barista na tela, serifa elegante.
 
 ## Stack
 - Next.js (App Router) + TypeScript + Tailwind
@@ -18,16 +18,16 @@ Referência de linha visual: premium escuro alternando com creme, macros de caf�
 ## Seções (ordem)
 | # | Fundo | Conteúdo | Técnica |
 |---|---|---|---|
-| 1 Hero | Café `#1A110B` | Sequência Blender em 8 etapas: cereja, grão verde, torra, moagem, dose, compactação, extração, xícara. Título "Do pé à xícara." **sanduíche** (linha de cima atrás da cereja, de baixo na frente) que sobe e some; depois, legenda por etapa com dado de barista. No fim a xícara vira **giro 360°** (arrastar) | Sticky + scroll-linked (frames 1–214, ~900svh) + `<Giro360>` |
-| 2 Origem | Creme `#F2EBE0` | "Toda xícara começa no pé." + anel de mancha de café em SVG que se desenha no scroll. Dados: 1.100 m · Bourbon Amarelo · colheita manual | Scroll-linked (stroke-dashoffset) |
-| — Serra | Creme → foto | Foto do Flow (fachada saída 2: casa na encosta, neblina) sai de um quadro no creme e toma a tela; "A serra acorda antes da *gente.*" Degradê embaixo emenda no café da Extração | Sticky + clip-path inset + zoom lento (220svh) |
+| 1 Hero | Café `#1A110B` | Abre com **a gota** (`<Gota>`, 1ª visita da sessão): tela marrom, uma gota de café cai no meio, respinga e a mancha toma a tela até virar o café do hero (~1,7 s, SVG + CSS, o título e a crista do logo entram depois). Sequência Blender em 8 etapas: cereja, grão verde, torra, moagem, dose, compactação, extração, xícara. Título "Do pé à xícara." **sanduíche** (linha de cima atrás da cereja, de baixo na frente) que sobe e some; depois, legenda por etapa com dado de barista. No fim a xícara vira **giro 360°** (arrastar) | Sticky + scroll-linked (frames 1–214, ~900svh) + `<Giro360>` |
+| 2 Origem | Café → torra (degradê) | "Toda xícara começa no pé." + anel de mancha de café em SVG que se desenha no scroll. Dados: 1.100 m · Bourbon Amarelo · colheita manual | Scroll-linked (stroke-dashoffset) |
+| — Serra | Torra → foto | Foto do Flow (fachada saída 2: casa na encosta, neblina) sai de um quadro no marrom e toma a tela; "A serra acorda antes da *gente.*" Degradê embaixo emenda no café da Extração | Sticky + clip-path inset + zoom lento (220svh) |
 | 3 Crema | Café | `crema.mp4` (rodada 2 do Flow: gotas caindo na crema). Celular: tela cheia; desktop: metade direita de ponta a ponta, texto à esquerda (9:16 esticado na largura ficava mole). "Viva, densa, cor de *avelã.*" | Sticky + scroll-scrub |
 | 4 Extração | Café | `extracao.mp4` + dados animados: **18 g · 36 g · 28 s · 9 bar · 93 °C** (contadores ligados ao scroll) | Sticky + scroll-linked |
-| 5 Grãos | Creme | 3 cards com grão renderizado flutuando sobre o still life das notas (Flow, rodada 4: jasmim + pêssego, cacau + caramelo, framboesa + mel). Notas: "Jasmim · Fruta amarela", "Cacau · Caramelo", "Frutas vermelhas · Mel" | Horizontal scroll |
+| 5 Grãos | Torra (`fundo-torra`) | 3 cards creme com grão renderizado flutuando sobre o still life das notas (Flow, rodada 4: jasmim + pêssego, cacau + caramelo, framboesa + mel). Notas: "Jasmim · Fruta amarela", "Cacau · Caramelo", "Frutas vermelhas · Mel" | Horizontal scroll |
 | 6 Leite | Café | `leite.mp4` (vídeo da "espiral" do Flow: não saiu espiral nem vista de cima, saiu o leite desenhando um coração; recortado 3:4). "Leite a 62 °C." / "Desenhado à *mão.*" | Sticky + scroll-scrub |
 | 7 Citação | Café | "O primeiro gole conta a história toda." sobre a foto do pé de café com orvalho (Flow, rodada 3: 16:9 no desktop com o galho no terço esquerdo e a frase à direita; 9:16 no celular com o galho em cima) + grãos (PNG do Blender) em 3 camadas, só fora do galho | Parallax |
-| 8 A casa | Creme | "Uma casa pequena na serra." Fotos do Flow (fachada, torrador, balcão), em escada | Parallax leve |
-| 9 CTA | Café | `xicara-final.mp4` em loop (quadrado, vista de cima, máscara radial some no fundo). "Prove na *serra.*" + botão WhatsApp, endereço, horário | Scroll-triggered |
+| 8 A casa | Torra (`fundo-torra`) | "Uma casa pequena na serra." Fotos do Flow (fachada, torrador, balcão), em escada | Parallax leve |
+| 9 CTA | Café | `xicara-final.mp4` em loop (quadrado, vista de cima, máscara radial some no fundo). "Prove na *serra.*" + botão WhatsApp, endereço, horário. Rodapé: a marca de ponta a ponta (`<Assinatura>`), subindo e desenhando a crista no fim da página | Scroll-triggered |
 
 Os rótulos na tela ("0X —") contam só as seções numeradas: Origem 01 … CTA 08 (Serra não tem número).
 
@@ -36,10 +36,10 @@ Mudanças de 20/11 (rodada 1 do Flow; o site fecha com o que tem):
 - **Crema**: a 1ª veio com "grãos" boiando; a rodada 2 (gotas caindo) entrou no mesmo dia, entre Serra e Extração.
 
 ## Direção visual
-- Cores: café `#1A110B` · creme `#F2EBE0` · caramelo `#C8925A` (detalhes, números) · cereja `#B5462F` (só na seção 1 e numa palavra de destaque)
+- Cores (paleta **Torra**, escolhida pelo Lucas em 22/11; antes foi a Cereja, vermelha, e ele quis mais escuro e mais marrom): café `#1A110B` · creme `#F2EBE0` (texto) · caramelo `#EBA26C` (detalhes, números) · torra `#6A3A25` → torra-funda `#3A1E13` (as seções que eram creme, em degradê; `fundo-torra` no globals.css emenda no café nas pontas) · cereja `#C23A22` só de destaque sobre o café (a marca grande do rodapé, "serra." do CTA; num tom escuro ela sumiria no café). As seções com vídeo continuam café: os vídeos do Flow têm fundo escuro
 - Tipo: **Fraunces** (títulos grandes, itálico pontual numa palavra) + **Geist** (corpo) + **Geist Mono** (dados técnicos)
 - Grão de filme sutil (overlay SVG noise, opacity ~0.06)
-- **Logo (grão-serra, escolhida pelo Lucas em 20/11):** grão de café com a crista da serra no lugar da fenda, ao lado de "Torra Serrana" em Fraunces. `<Grao>` em `src/components/Logo.tsx`: uma cor só (`currentColor`) com a crista vazada por `<mask>`, porque o header usa `mix-blend-difference`; na abertura a crista se desenha (`.crista` no globals.css). Colorida (caramelo + café) no `icon.svg` e no `opengraph-image.jpg` (prévia do link, 1200×630, gerada de um HTML com o frame 214)
+- **Logo (grão-serra, escolhida pelo Lucas em 20/11):** grão de café com a crista da serra no lugar da fenda, ao lado de "Torra Serrana" em Fraunces. `<Grao>` em `src/components/Logo.tsx`: uma cor só (`currentColor`) com a crista vazada por `<mask>` (o header era `mix-blend-difference`; desde 22/11 é creme puro, porque no vermelho da 1ª paleta a diferença dava verde-água); na abertura a crista se desenha (`.crista` no globals.css). Colorida (caramelo + café) no `icon.svg` e no `opengraph-image.jpg` (prévia do link, 1200×630, gerada de um HTML com o frame 214)
 - Copy curta, em português, primeira pessoa do plural
 - **Proibido:** gradiente roxo, glassmorphism, ícones genéricos em cards, emojis, "Bem-vindo", lorem ipsum
 
@@ -75,6 +75,13 @@ Mudanças de 20/11 (rodada 1 do Flow; o site fecha com o que tem):
   - Rodada 4 (21/11): notas de sabor dos lotes (3:4, fundo creme) → `python scripts/fundo_branco.py flow/originais/C4-loteN-*.jpg public/img/graos/notas-N.webp`: o fundo vira branco puro (superfície polinomial ajustada fora do arranjo) e o card aplica `mix-blend-multiply`, então o fundo some na cor do card. O card precisa de fundo **opaco**: o trilho tem `will-change` e isola a mistura.
   - `blender/cena02_crema.py`: tentativa de crema no Blender (20/11), não chegou no nível do Flow e não é usada. Cada render no EEVEE recompila o shader (~40 s fixos): se for usar, renderizar numa chamada só de animação.
 - Fraunces enxuto (peso 400 + SOFT 50 fixos, só `opsz` variável, 70 KB): `python scripts/fraunces.py <Regular-var.woff2> <Italic-var.woff2>` → `src/app/fonts/` (precisa de fonttools + brotli).
+
+## Reel do Instagram (formato da série do Lucas)
+Abertura dele (`referencias-insta/IMG_1165.MOV`) com o comentário de @torra.serrana → fatias → palco torra com o site na janela 1000×625, barrinha de progresso com o grão, marca e stack → final preto "E aí, gostaram?". 1080×1920, 30 q/s, mudo (a música entra no Instagram, com a batida na transição). Tudo em `reel/` (fora do git), vindo do pipeline do reel da Colo (`C:\projetos\landingpageOdonto\reel\fonte`):
+1. `pnpm build && pnpm start -p 3311`
+2. `cd reel/fonte && node gravar.mjs roteiro.json` (quadro a quadro com relógio virtual; ~990 quadros. A ImageSequence e o Giro360 marcam `data-exato` no canvas só pro gravador saber que o frame certo está desenhado)
+3. `node arte/gen.mjs && node arte/render.mjs && node palco.mjs`
+4. `node montar.mjs ../../referencias-insta/IMG_1165.MOV ../torra-serrana-instagram.mp4 "<trechos>"`
 
 ## Regras
 - Componentes pequenos, sem dependência desnecessária
